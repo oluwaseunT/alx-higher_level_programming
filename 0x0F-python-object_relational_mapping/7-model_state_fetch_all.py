@@ -1,4 +1,4 @@
-i#!/usr/bin/python3
+#!/usr/bin/python3
 """ Lists all State objects """
 
 from model_state import Base, State
