@@ -1,13 +1,14 @@
 #!/usr/bin/python3
 '''
-script that fetches https://intranet.hbtn.io/status
+Displays the body response of a URL
 '''
-import urllib.request as req
-
 if __name__ == '__main__':
-    with req.urlopen('https://intranet.hbtn.io/status') as res:
-        content = res.read()
-        print("Body response:")
-        print("\t- type: {}".format(type(content)))
-        print("\t- content: {}".format(content))
-        print("\t- utf8 content: {}".format(content.decode('utf-8')))
+    import sys
+    import urllib.request
+    
+    with urllib.request.urlopen(sys.argv[1]) as res:
+        print(f'Body response:')
+        print(f'- type: {type(res.read())}')
+        print(f'- content: {res.read()}')
+        print(f'- utf8 content: {res.read().decode("utf-8")}')
+
