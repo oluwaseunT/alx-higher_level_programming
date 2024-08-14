@@ -1,25 +1,21 @@
 #!/usr/bin/python3
-'''
-Module for class Student.
-'''
+""" this class defines a student: (based on 9-student.py) """
 
 
 class Student:
-    ''' Student Class '''
+    """docstring for New Student class"""
 
     def __init__(self, first_name, last_name, age):
-        ''' Initialize Class '''
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
 
     def to_json(self, attrs=None):
-        ''' Return dictionary to JSON '''
-        if attrs is not None and all(isinstance(item, str) for item in attrs):
-            ret = {}
-            for p, r in self.__dict__.items():
-                if p in attrs:
-                    ret[p] = r
-            return ret
+        if attrs is None:
+            return (self.__dict__)
         else:
-            return self.
+            dic = {}
+            for nm in attrs:
+                if hasattr(self, nm):
+                    dic[nm] = getattr(self, nm)
+            return (dic)
